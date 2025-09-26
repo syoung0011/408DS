@@ -16,8 +16,9 @@ void testList()
 }
 void testInts()
 {
-    int arr[] = { 1,2,3,4 };
-    sequence(arr, 4, 2);
+    int arr[] = { 1,2,3,4,5 };
+    sequence(arr, 5, 2);
+    showInts(arr, 5);
 }
 void testChars()
 {

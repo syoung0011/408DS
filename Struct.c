@@ -6,7 +6,14 @@ void swapInts(int arr[],int L,int R)
     int temp = arr[L];
     arr[L] = arr[R];
     arr[R]=temp;
-} 
+}
+void showInts(int arr[], int n)
+{
+    for (int i = 0; i < n; ++i)
+        printf("%d ",arr[i]);
+    printf("\n");
+}
+
 
 int findKList(List L, int k)
 {
@@ -44,6 +51,7 @@ void sequence(int arr[],int n, int p)
 {
     reverseInts(arr, 0, n - 1);
     reverseInts(arr, n - p, n - 1);
+    reverseInts(arr, 0, n - p - 1);
 }
 
 

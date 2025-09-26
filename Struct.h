@@ -12,6 +12,7 @@ typedef struct LNode {
 lib
 */
 void swapInts(int arr[], int L,int R);
+void showInts(int arr[], int n);
 
 /*
 2009.42
@@ -23,7 +24,7 @@ int findKList(List L, int k);
 2010.42
 数组元素左移
 1.逆转数组全部
-2.逆转数组末尾
+2.分别逆转数组两部分
 */
 void reverseInts(int arr[], int L, int R);
 void sequence(int arr[], int n,int p);
