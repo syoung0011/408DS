@@ -17,8 +17,12 @@ void testList()
 void testInts()
 {
     int arr[] = { 1,2,3,4,5 };
-    sequence(arr, 5, 2);
-    showInts(arr, 5);
+    //sequence(arr, 5, 2);
+    //showInts(arr, 5);
+    int A[] = { 1,8,9 };
+    int B[] = { 2,6,10 };
+    int ret=mid2Ints(A, B,3);
+    printf("mid=%d\n", ret);
 }
 void testChars()
 {

@@ -29,3 +29,9 @@ int findKList(List L, int k);
 void reverseInts(int arr[], int L, int R);
 void sequence(int arr[], int n,int p);
 
+/*
+2011.42
+查找两个升序数组的中位数
+*/
+int mid2Ints(int A[], int B[], int L);
+
