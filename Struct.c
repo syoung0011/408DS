@@ -1,6 +1,6 @@
 #include "Struct.h"
 #include<stdio.h>
-
+#include<stdbool.h>
 void swapInts(int arr[],int L,int R)
 {
     int temp = arr[L];
@@ -66,6 +66,80 @@ int mid2Ints(int A[], int B[], int L)
             temp = B[q++];
     }
     return temp;
+}
+
+void findSameLists(List str1, List str2)
+{
+    if (str1 == NULL || str2 == NULL)
+    {
+        printf("NOT EXIST.\n");
+        return;
+    }
+    Node* p = str1->next, * q = str2->next;
+    int size1 = 0, size2 = 0;
+    while (p)
+    {
+        ++size1;
+        p = p->next;
+    }
+    while (q)
+    {
+        ++size2;
+        q = q->next;
+    }
+    p = str1->next,q = str2->next;
+    int cnt = size1 - size2;
+    while(cnt>0)
+    {
+        p = p->next;
+        --cnt;
+    }
+    while (cnt < 0)
+    {
+        q = q->next;
+        ++cnt;
+    }
+    /*
+    基于data
+    */
+    //bool isLast = false;
+    //while (p && q)
+    //{
+    //    if (p->data == q->data)
+    //    {
+    //        if (!isLast)isLast = true;
+    //        printf("%c", p->data);
+    //    }
+    //    else if (isLast)
+    //    {
+    //        printf(" IS IGNORED.\n");
+    //        isLast = false;
+    //    }
+    //    p = p->next;
+    //    q = q->next;
+    //}
+    //if (isLast)printf(" IS THE RESULT.\n");
+    //else printf("NOT EXIST.\n");
+
+    /*
+    基于node
+    */
+    while (p && q)
+    {
+        if (p == q)
+        {
+            while (p)
+            {
+                printf("%c", p->data);
+                p = p->next;
+            }
+            printf(" IS THE RESULT.\n");
+            return;
+        }
+        p = p->next;
+        q = q->next;
+    }
+    printf("NOT EXSIT.\n");
 }
 
 

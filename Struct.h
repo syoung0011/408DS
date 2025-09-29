@@ -1,7 +1,8 @@
 #pragma once
 #include<stdio.h>
 
-typedef int ElemType;
+//typedef int ElemType;
+typedef char ElemType;
 
 typedef struct LNode {
     ElemType data;
@@ -35,3 +36,8 @@ void sequence(int arr[], int n,int p);
 */
 int mid2Ints(int A[], int B[], int L);
 
+/*
+2012.42
+查找链表共同后缀
+*/
+void findSameLists(List str1, List str2);
