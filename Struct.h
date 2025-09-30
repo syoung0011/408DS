@@ -14,6 +14,8 @@ lib
 */
 void swapInts(int arr[], int L,int R);
 void showInts(int arr[], int n);
+int huafen(int arr[], int L, int R);
+void QSort(int arr[], int L, int R);
 
 /*
 2009.42
@@ -41,3 +43,11 @@ int mid2Ints(int A[], int B[], int L);
 查找链表共同后缀
 */
 void findSameLists(List str1, List str2);
+
+/*
+2013.41
+查找数组主元素
+1.快排
+2.计数
+*/
+int findMainInts(int arr[],int n);

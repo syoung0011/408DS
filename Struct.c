@@ -142,4 +142,43 @@ void findSameLists(List str1, List str2)
     printf("NOT EXSIT.\n");
 }
 
+int huafen(int arr[], int L, int R)
+{
+    int mid = arr[L];
+    while (L < R)
+    {
+        while (arr[R] >= mid&&L<R)
+            --R;
+        arr[L] = arr[R];
+        while (arr[L] <= mid && L < R)
+            ++L;
+        arr[R] = arr[L];
+    }
+    arr[L] = mid;
+    return L;
+}
+
+void QSort(int arr[], int L, int R)
+{
+    if (L >= R)return;
+    int mid = huafen(arr, L, R);
+    QSort(arr, L, mid - 1);
+    QSort(arr, mid + 1, R);
+}
+int findMainInts(int arr[],int n)
+{
+    QSort(arr, 0, n - 1);
+    int idx = n / 2;
+    int mid = arr[idx],cnt=0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr[i] == mid)
+            ++cnt;
+    }
+    if (cnt > idx)
+        return mid;
+    else
+        return -1;
+}
+
 
