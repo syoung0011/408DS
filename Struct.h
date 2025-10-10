@@ -64,5 +64,5 @@ int findMainInts(int arr[],int n);
 计算二叉树WPL
 遍历的改造
 */
-void preOrder(BTree root,int n);
+int preOrderWPL(BTree root, int n);
 void calWPL(BTree root);

@@ -1,7 +1,6 @@
 #include "Struct.h"
 #include<stdio.h>
 #include<stdbool.h>
-int WPL_2014=0;
 
 void swapInts(int arr[],int L,int R)
 {
@@ -178,8 +177,8 @@ void printfU(int mod)
 {
     switch (mod)
     {
-    case 2014:
-        printf("WPL=%d\n", WPL_2014);
+    case 1:
+
         break;
     default:
         printf("uData miss\n");
@@ -202,18 +201,15 @@ int findMainInts(int arr[],int n)
         return -1;
 }
 
-void preOrder(BTree root,int n)
+int preOrderWPL(BTree root, int n)
 {
     if (root == NULL)return 0;
-    WPL_2014+=root->weight* n;
-    preOrder(root->left,n+1);
-    preOrder(root->right,n+1);
+    return root->weight * n+preOrderWPL(root->left, n + 1)+ preOrderWPL(root->right, n + 1);
 }
 
 void calWPL(BTree root)
 {
-    preOrder(root, 0);
-    printfU(2014);
+    printf("WPL=%d\n",preOrderWPL(root, 0));
 }
 
 
