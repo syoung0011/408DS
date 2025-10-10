@@ -1,6 +1,8 @@
 #include "Struct.h"
 #include<stdio.h>
 #include<stdbool.h>
+int WPL_2014=0;
+
 void swapInts(int arr[],int L,int R)
 {
     int temp = arr[L];
@@ -12,6 +14,13 @@ void showInts(int arr[], int n)
     for (int i = 0; i < n; ++i)
         printf("%d ",arr[i]);
     printf("\n");
+}
+int max(int a, int b)
+{
+    if (a > b)
+        return a;
+    else 
+        return b;
 }
 
 
@@ -165,6 +174,18 @@ void QSort(int arr[], int L, int R)
     QSort(arr, L, mid - 1);
     QSort(arr, mid + 1, R);
 }
+void printfU(int mod)
+{
+    switch (mod)
+    {
+    case 2014:
+        printf("WPL=%d\n", WPL_2014);
+        break;
+    default:
+        printf("uData miss\n");
+        break;
+    }
+}
 int findMainInts(int arr[],int n)
 {
     QSort(arr, 0, n - 1);
@@ -179,6 +200,20 @@ int findMainInts(int arr[],int n)
         return mid;
     else
         return -1;
+}
+
+void preOrder(BTree root,int n)
+{
+    if (root == NULL)return 0;
+    WPL_2014+=root->weight* n;
+    preOrder(root->left,n+1);
+    preOrder(root->right,n+1);
+}
+
+void calWPL(BTree root)
+{
+    preOrder(root, 0);
+    printfU(2014);
 }
 
 

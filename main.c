@@ -63,8 +63,19 @@ void testString()
 {
 
 }
+void testBTree()
+{   
+    //BTNode n0 = { NULL,10,NULL };
+    BTNode n1={ NULL,1,NULL };
+    BTNode n2 = { NULL,1,NULL };
+    BTNode n3 = { &n1,4,&n2 };
+    BTNode n4 = { NULL,6,NULL };
+    BTNode n5 = { &n3,7,&n4 };
+    calWPL(&n5);
+}
 int main()
 {
-    testInts();
+    /*testInts();*/
+    testBTree();
     return 0;
 }

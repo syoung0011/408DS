@@ -9,6 +9,12 @@ typedef struct LNode {
     struct LNode* next;
 }Node, * List;
 
+typedef struct BTNode {
+	struct BTNode* left;
+    int weight;
+    struct BTNode* right;
+}BTNode,*BTree;
+
 /*
 lib
 */
@@ -16,6 +22,7 @@ void swapInts(int arr[], int L,int R);
 void showInts(int arr[], int n);
 int huafen(int arr[], int L, int R);
 void QSort(int arr[], int L, int R);
+void printfU(int mod);
 
 /*
 2009.42
@@ -51,3 +58,11 @@ void findSameLists(List str1, List str2);
 2.计数
 */
 int findMainInts(int arr[],int n);
+
+/*
+2014.41
+计算二叉树WPL
+遍历的改造
+*/
+void preOrder(BTree root,int n);
+void calWPL(BTree root);
