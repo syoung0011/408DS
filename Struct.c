@@ -14,18 +14,11 @@ void showInts(int arr[], int n)
         printf("%d ",arr[i]);
     printf("\n");
 }
-int max(int a, int b)
-{
-    if (a > b)
-        return a;
-    else 
-        return b;
-}
 
 
 int findKList(List L, int k)
 {
-    if (L == NULL || k <= 0)return 0;
+    if (L == NULL || k <= 0)return -1;
     int cnt = 0;
     Node* p = L->next;
     while (p)   // 统计总长度
@@ -34,15 +27,14 @@ int findKList(List L, int k)
         p = p->next;
     }
     int idx = cnt - k + 1;
-    if (idx <= 0)return 0;  // 越界
+    if (idx <= 0)return -1;  // 越界
     p = L;
     while (idx > 0)  // 查找目标
     {
         --idx;
         p = p->next;
     }
-    printf("%d", p->data);
-    return 1;
+    return p->data;
 }
 
 void reverseInts(int arr[], int L, int R)
@@ -64,7 +56,7 @@ void sequence(int arr[],int n, int p)
 
 int mid2Ints(int A[], int B[], int L)
 {
-    //if (L <= 0)return -1;
+    //if (L <= 0)return -1; // 被包含了
     int p=0,q = 0, temp = -1;
     for(;L>0;--L)
     {
@@ -185,6 +177,17 @@ void printfU(int mod)
         break;
     }
 }
+void showList(List L)
+{
+    if (L == NULL)return;
+    Node* p = L->next;
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+    printf("\n");
+}
 int findMainInts(int arr[],int n)
 {
     QSort(arr, 0, n - 1);
@@ -210,6 +213,36 @@ int preOrderWPL(BTree root, int n)
 void calWPL(BTree root)
 {
     printf("WPL=%d\n",preOrderWPL(root, 0));
+}
+
+void delSameList(List L,int n)
+{
+    if (L==NULL||n <= 0)return;
+    int* arr = (int*)malloc(sizeof(int) * n);
+    for (int i = 0; i < n; ++i)
+        arr[i] = 0;
+    Node* p = L->next;
+    Node* pre = L;
+    while (p != NULL)
+    {
+        int idx = p->data;
+        if (idx < 0)
+            idx = -idx;
+        if (arr[idx] == 0)
+        {
+            arr[idx] = 1;
+            pre = p;
+            p = p->next;
+        }
+        else
+        {
+            Node* q = p;
+            p = p->next;
+            pre->next = p;
+            //free(q);  // 栈上对象free报错
+        }
+    }
+    free(arr);
 }
 
 

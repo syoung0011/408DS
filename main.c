@@ -1,19 +1,20 @@
 #include"Struct.h"
 void testIntList()
 {
-    //Node a;
-    //List L = &a;
-    //Node n1;
-    //Node n2;
-    //Node n3;
-    //n1.data = 2;
-    //n2.data = 4;
-    //n3.data = 8;
-    //L->next = &n1;
-    //n1.next = &n2;
-    //n2.next = &n3;
-    //n3.next = NULL;
-
+    Node a;
+    List L=&a;
+    Node n1;
+    Node n2;
+    Node n3;
+    n1.data = 6;
+    n2.data = -3;
+    n3.data = 8;
+    L->next = &n1;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = NULL;
+    delSameList(L, 9);
+    showList(L);
 
 }
 void testCharList()
@@ -76,6 +77,7 @@ void testBTree()
 int main()
 {
     /*testInts();*/
-    testBTree();
+    //testBTree();
+    testIntList();
     return 0;
 }

@@ -1,8 +1,9 @@
 #pragma once
 #include<stdio.h>
+#include <stdlib.h>
 
-//typedef int ElemType;
-typedef char ElemType;
+typedef int ElemType;
+//typedef char ElemType;
 
 typedef struct LNode {
     ElemType data;
@@ -23,6 +24,7 @@ void showInts(int arr[], int n);
 int huafen(int arr[], int L, int R);
 void QSort(int arr[], int L, int R);
 void printfU(int mod);
+void showList(List L);
 
 /*
 2009.42
@@ -48,6 +50,7 @@ int mid2Ints(int A[], int B[], int L);
 /*
 2012.42
 查找链表共同后缀
+注：只支持在屏幕上打印结果，不支持保存结果
 */
 void findSameLists(List str1, List str2);
 
@@ -66,3 +69,10 @@ int findMainInts(int arr[],int n);
 */
 int preOrderWPL(BTree root, int n);
 void calWPL(BTree root);
+
+/*
+2015.41
+删除链表重复值
+注：测试案例需为栈上对象，具体见代码
+*/
+void delSameList(List L,int n);
